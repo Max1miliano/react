@@ -16,3 +16,11 @@ li {
   grid-auto-flow: column;
   place-items: center center;
 }
+
+/* .app {
+  display: flex;
+}
+
+.counter {
+  margin: 0 auto;
+} */

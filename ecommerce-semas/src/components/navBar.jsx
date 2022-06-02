@@ -1,12 +1,12 @@
 import CartWidget from "./cartWidget";
 
-const navBar = () => {
+const navBar = ({landing}) => {
     return <>
         <header>
             <nav>
                 <ul class="navItems">
-                    <h1>Growshop</h1>
-                    <li>Home</li>
+                    <h1>{landing}</h1>
+                    <li>Home</li> 
                     <li>Catalogo</li>
                     <li>Contacto</li>
                     <CartWidget />
