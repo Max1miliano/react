@@ -1,7 +1,7 @@
 import "./App.css";
+import ItemListContainer from "./container/itemListContainer/itemListContainer";
 // import React, {useState} from "react";
 // import NavBar from "./components/navBar.jsx";
-import ItemListContainer from "./container/itemListContainer/itemListContainer";
 // import Counter from "./components/Counter";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   return <>
   {/* <NavBar landing={"Marca"}/>  */}
-  <ItemListContainer/>
+  <ItemListContainer title="Bienvenidos a mi ecommerce"/>
 
   {/* <div className="app">
     <button onClick={() => setShow(!show)}>show/hide</button>
