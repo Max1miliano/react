@@ -1,7 +1,7 @@
 import './itemListContainer.css'
 import { useState, useEffect } from 'react'
 import { getCatalogo } from '../../asyncmock'
-import ItemList from '../../components/itemList'
+import ItemList from '../../components/itemList/itemList'
 // componente contenedor donde hago toda la logica 
 
 
