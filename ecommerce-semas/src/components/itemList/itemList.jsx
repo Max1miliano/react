@@ -10,4 +10,4 @@ const ItemList = ({ catalogo }) => {
     )
 }
 
-export default ItemList
+export default ItemList 

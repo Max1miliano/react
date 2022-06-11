@@ -1,7 +1,7 @@
 import "./App.css";
-import ItemListContainer from "./container/itemListContainer/itemListContainer";
+import ItemListContainer from "./components/itemListContainer/itemListContainer";
 // import React, {useState} from "react";
-// import NavBar from "./components/navBar.jsx";
+import NavBar from "./components/NavBar/navBar";
 // import Counter from "./components/Counter";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   // const [show, setShow] = useState(true)
 
   return <>
-  {/* <NavBar landing={"Marca"}/>  */}
+  <NavBar landing={"Marca"}/> 
   <ItemListContainer title="Bienvenidos a mi ecommerce"/>
 
   {/* <div className="app">

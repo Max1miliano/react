@@ -1,9 +1,9 @@
-import logo from "../img/carrito.png";
+import Logo from '../../img/carrito.png'
 
 
 const CartWidget = () => {
     return <>
-    <img class="logo" src={logo} alt="imagen carrito" title="mi carrito"/>
+    <img class="logo" src={Logo} alt="imagen carrito" title="mi carrito"/>
     </>
 }
 

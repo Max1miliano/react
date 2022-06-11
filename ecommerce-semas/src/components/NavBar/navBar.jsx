@@ -1,14 +1,14 @@
-import CartWidget from "./cartWidget";
+import CartWidget from "../cartWidget/cartWidget";
 
-const navBar = ({landing}) => {
+const NavBar = ({landing}) => {
     return <>
         <header>
             <nav>
                 <ul class="navItems">
                     <h1>{landing}</h1>
-                    <li>Home</li> 
-                    <li>Catalogo</li>
-                    <li>Contacto</li>
+                    <li>Coleccion 2019</li> 
+                    <li>Coleccion 2020</li>
+                    <li>Automaticas</li>
                     <CartWidget />
                 </ul>
             </nav>
@@ -16,4 +16,4 @@ const navBar = ({landing}) => {
     </>
 }
 
-export default navBar;
+export default NavBar;
