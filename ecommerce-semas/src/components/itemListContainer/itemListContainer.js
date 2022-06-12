@@ -1,32 +1,38 @@
 import './itemListContainer.css'
 import { useState, useEffect } from 'react'
 import { getCatalogo } from '../../databaseLocal/asyncmock'
+import { getSemillasByCategoria } from '../../databaseLocal/asyncmock'
 import ItemList from '../../components/itemList/itemList'
-// componente contenedor donde hago toda la logica 
-
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = (props) => {
+
+const { categoriaId } = useParams() 
+console.log(categoriaId)
 
 const [catalogo, setCatalogo] = useState([])
 
     useEffect(() => {
-        getCatalogo().then(response => {
-            setCatalogo(response)
-        })
-    }, [])
+        if (!categoriaId) {
+            getCatalogo().then(response => {
+                setCatalogo(response)
+                })
+        } else {
+            getSemillasByCategoria(categoriaId).then(response => {
+                setCatalogo(response)
+                })
+        }
+    }, [categoriaId])
 
-// console.log(catalogo)
+    
+    
 
-    // const catalogoComponents = catalogo.map(catalogos => {
-    //     return(
-    //         <li key={catalogos.id}>{catalogos.nombre}</li>
-    //     )
-    // })
+    console.log(catalogo)
 
     return (
     <div className="container">
         <h1>{props.title}</h1>
-        <ItemList catalogo={catalogo}/>
+        <ItemList dataBase={catalogo}/>
     </div>
     )
 }

@@ -1,21 +1,38 @@
+// import { useState } from "react";
 import "./App.css";
 import ItemListContainer from "./components/itemListContainer/itemListContainer";
-// import React, {useState} from "react";
 import NavBar from "./components/NavBar/navBar";
 // import Counter from "./components/Counter";
+// // para importar react router 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ItemDetailcontainer from "./components/itemDetailContainer/itemDetailContainer";
+
 
 function App() {
+ 
+  // const [page, setPage] = useState('list')
 
-  // const [show, setShow] = useState(true)
 
   return <>
-  <NavBar landing={"Marca"}/> 
-  <ItemListContainer title="Bienvenidos a mi ecommerce"/>
+  {/* <div>
+    <button onClick={() => setPage('list')}>List</button>
+    <button onClick ={() => setPage('detail')}>Detail</button>
+  </div> */}
+  {/* {page === 'list' && <ItemListContainer title="Bienvenidos a mi ecommerce"/>}
+  {page === 'detail' && <ItemDetailcontainer />} */}
+  
 
-  {/* <div className="app">
-    <button onClick={() => setShow(!show)}>show/hide</button>
-  {show && <Counter initial={0} stock={20}/>} */}
-  {/* </div> */}
+  {/* configuracion de react router  */}
+
+  <BrowserRouter>
+      <NavBar landing={"Marca"}/> 
+      <Routes>
+        <Route path="/" element={<ItemListContainer title="Bienvenidos a mi ecommerce"/>}/>
+        <Route path="/catalogo/:categoriaId" element={<ItemListContainer title="Bienvenidos a mi ecommerce"/>}/>
+        <Route path="/detail/:semId" element={<ItemDetailcontainer />}/>
+      </Routes>
+  </BrowserRouter>
+
   </>;
 }
 
