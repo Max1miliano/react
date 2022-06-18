@@ -1,5 +1,6 @@
 import CartWidget from "../cartWidget/cartWidget";
 import {Link} from 'react-router-dom'
+
 const NavBar = ({landing}) => {
     return <>
         <header>
