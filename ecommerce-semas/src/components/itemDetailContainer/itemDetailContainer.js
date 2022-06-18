@@ -5,13 +5,9 @@ import { useParams } from 'react-router-dom'
 
 const ItemDetailcontainer = () => {
 
-    const params = useParams()
-
-    // console.log(params)
+    const params = useParams();
 
     const [semilla, setSemilla] = useState() 
-
-    console.log(semilla)
 
     useEffect(() => {
         getCatalogoById(params.semId).then(response => {

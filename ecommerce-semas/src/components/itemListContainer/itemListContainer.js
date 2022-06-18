@@ -7,27 +7,21 @@ import { useParams } from 'react-router-dom'
 
 const ItemListContainer = (props) => {
 
-const { categoriaId } = useParams() 
-console.log(categoriaId)
+const { params } = useParams()
 
 const [catalogo, setCatalogo] = useState([])
 
     useEffect(() => {
-        if (!categoriaId) {
+        if (!params) {
             getCatalogo().then(response => {
                 setCatalogo(response)
                 })
         } else {
-            getSemillasByCategoria(categoriaId).then(response => {
+            getSemillasByCategoria(params).then(response => {
                 setCatalogo(response)
                 })
         }
-    }, [categoriaId])
-
-    
-    
-
-    console.log(catalogo)
+    }, [params])
 
     return (
     <div className="container">
