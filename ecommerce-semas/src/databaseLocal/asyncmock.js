@@ -87,9 +87,6 @@ const catalogo = [
     }
 ]
 
-// let coleccion2019 = catalogo.coleccion2019
-// let coleccion2020 = catalogo.coleccion2020
-
 export const getCatalogo = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {

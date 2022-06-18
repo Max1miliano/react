@@ -1,5 +1,5 @@
 import CartWidget from "../cartWidget/cartWidget";
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 const NavBar = ({landing}) => {
     return <>
@@ -9,9 +9,9 @@ const NavBar = ({landing}) => {
                     <Link to='/'>
                         <h1>{landing}</h1>
                     </Link>
-                    <Link to='/catalogo/coleccion2019'>Coleccion 2019</Link> 
-                    <Link to='/catalogo/coleccion2020'>Coleccion 2020</Link>
-                    <Link to='/catalogo/automaticas'>Automaticas</Link>
+                    <NavLink to={ '/catalogo/coleccion2019' }>Coleccion 2019</NavLink> 
+                    <NavLink to={ '/catalogo/coleccion2020' }>Coleccion 2020</NavLink>
+                    <NavLink to={ '/catalogo/automaticas' }>Automaticas</NavLink>
                     <CartWidget />
                 </ul>
             </nav>
