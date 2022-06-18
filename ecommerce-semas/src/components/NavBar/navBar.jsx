@@ -7,10 +7,10 @@ const NavBar = ({landing}) => {
         <header className="navBar">
             <nav>
                 <ul className="navItems">
-                    <Link to='/'><h1>{landing}</h1></Link>
-                    <NavLink to={ '/catalogo/coleccion2019' }>Coleccion 2019</NavLink> 
-                    <NavLink to={ '/catalogo/coleccion2020' }>Coleccion 2020</NavLink>
-                    <NavLink to={ '/catalogo/automaticas' }>Automaticas</NavLink>
+                    <Link className='linkDeNav' to='/'><h1>{landing}</h1></Link>
+                    <NavLink className='linkDeNav' to={ '/catalogo/coleccion2019' }>Coleccion 2019</NavLink> 
+                    <NavLink className='linkDeNav' to={ '/catalogo/coleccion2020' }>Coleccion 2020</NavLink>
+                    <NavLink className='linkDeNav' to={ '/catalogo/automaticas' }>Automaticas</NavLink>
                     <CartWidget />
                 </ul>
             </nav>

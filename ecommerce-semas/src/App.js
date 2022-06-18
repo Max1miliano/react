@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/navBar";
 // // para importar react router 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ItemDetailcontainer from "./components/itemDetailContainer/itemDetailContainer";
+import ThemeContext from "./context/cartContext";
 
 
 function App() {

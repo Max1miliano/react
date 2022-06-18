@@ -7,4 +7,26 @@
     grid-auto-flow: column;
     place-items: center;
     gap: 1rem;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 9rem;
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.position {
+    display: flex;
+    flex-direction: column;
+}
+.position span { 
+    align-self: end;
+    background: black;
+    padding: 0.5rem;
+    border-radius: 5px;
 }

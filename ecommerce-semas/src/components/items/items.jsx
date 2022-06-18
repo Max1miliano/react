@@ -2,6 +2,12 @@ import '../items/items.css'
 import {Link} from 'react-router-dom'
 
 const Item = ({ id, nombre, img, alt, genetica, floracion }) => {
+
+     const handleClick = (e) => {
+        e.stopPropagation()
+        console.log('Hice Click')
+    }
+
     return (
         <div className='cardItem'>
             <img src={img.src} alt={alt} />
@@ -10,11 +16,11 @@ const Item = ({ id, nombre, img, alt, genetica, floracion }) => {
                 <li className='textCard'>Genética: {genetica}</li>
                 <li className='textCard'>Floración: {floracion} días</li>
             </ul>
-            <button>
+            <button onClick={handleClick} className='itemButton'>
                 <Link to={`/detail/${id}`}>Ver Detalle</Link>
             </button>
         </div>
     )
 }
 
-export default Item
+export default Item 
