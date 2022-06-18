@@ -26,7 +26,7 @@ const [catalogo, setCatalogo] = useState([])
     return (
     <div className="container">
         <h1>{props.title}</h1>
-        <ItemList catalogo={catalogo}/>
+        <ItemList listCatalogo={catalogo}/>
     </div>
     )
 }
