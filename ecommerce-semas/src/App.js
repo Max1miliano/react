@@ -10,30 +10,15 @@ import ThemeContext from "./context/cartContext";
 
 
 function App() {
- 
-  // const [page, setPage] = useState('list')
-
-
   return <>
-  {/* <div>
-    <button onClick={() => setPage('list')}>List</button>
-    <button onClick ={() => setPage('detail')}>Detail</button>
-  </div> */}
-  {/* {page === 'list' && <ItemListContainer title="Bienvenidos a mi ecommerce"/>}
-  {page === 'detail' && <ItemDetailcontainer />} */}
-  
-
-  {/* configuracion de react router  */}
-
-  <BrowserRouter>
+    <BrowserRouter>
       <NavBar landing={"Marca"}/> 
       <Routes>
         <Route path="/" element={<ItemListContainer title="Bienvenidos a mi ecommerce"/>}/>
         <Route path="/catalogo/:categoriaId" element={<ItemListContainer title="Bienvenidos a mi ecommerce"/>}/>
         <Route path="/detail/:semId" element={<ItemDetailcontainer />}/>
       </Routes>
-  </BrowserRouter>
-
+    </BrowserRouter>
   </>;
 }
 
