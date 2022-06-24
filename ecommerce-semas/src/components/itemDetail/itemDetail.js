@@ -1,14 +1,13 @@
 import '../itemDetail/itemDetail.css'
 
-const ItemDetail = ({ nombre, genetica, sabores, img, aroma }) => {
+const ItemDetail = ({nombre, imagen, precio, descripcion  }) => {
 
    return <>
       <div className='itemDetail'>
          <h1>{nombre}</h1>
-         <h2>{genetica}</h2>
-         <p className='taste'>{ sabores }</p>
-         <p className='smell'>{ aroma }</p>
-         <img src={ img?.src } alt={ img?.alt }></img>
+         <p className='taste'>{ precio }</p>
+         <p className='smell'>{ descripcion }</p>
+         <img src={ imagen } alt=''></img>
       </div>
    </>
 }

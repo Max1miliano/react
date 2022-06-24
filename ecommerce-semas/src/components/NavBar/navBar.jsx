@@ -8,9 +8,9 @@ const NavBar = ({landing}) => {
             <nav>
                 <ul className="navItems">
                     <Link className='linkDeNav' to='/'><h1>{landing}</h1></Link>
-                    <NavLink className='linkDeNav' to={ '/catalogo/coleccion2019' }>Coleccion 2019</NavLink> 
-                    <NavLink className='linkDeNav' to={ '/catalogo/coleccion2020' }>Coleccion 2020</NavLink>
-                    <NavLink className='linkDeNav' to={ '/catalogo/automaticas' }>Automaticas</NavLink>
+                    <NavLink className='linkDeNav' to={ '/catalogo/Accesorios' }>Accesorios</NavLink> 
+                    <NavLink className='linkDeNav' to={ '/catalogo/Computadores' }>Computadoras</NavLink>
+                    <NavLink className='linkDeNav' to={ '/catalogo/Celulares' }>Celulares</NavLink>
                     <CartWidget />
                 </ul>
             </nav>

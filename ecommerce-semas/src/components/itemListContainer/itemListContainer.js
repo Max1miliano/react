@@ -1,33 +1,35 @@
 import './itemListContainer.css'
 import { useState, useEffect } from 'react'
-import { getCatalogo } from '../../databaseLocal/asyncmock'
-import { getSemillasByCategoria } from '../../databaseLocal/asyncmock'
+import { callProducts } from '../../databaseLocal/asyncmock'
+import { callProductsByCategory } from '../../databaseLocal/asyncmock'
 import ItemList from '../../components/itemList/itemList'
 import { useParams } from 'react-router-dom'
 
 const ItemListContainer = (props) => {
 
-const { categoriaId }  = useParams()
+    const { categoriaId } = useParams()
 
-const [catalogo, setCatalogo] = useState([])
+    const [productos, setProductos] = useState([])
 
     useEffect(() => {
         if (!categoriaId) {
-            getCatalogo().then(response => {
-                setCatalogo(response)
-                })
+            callProducts().then(response => {
+                setProductos(response)
+            })
         } else {
-            getSemillasByCategoria(categoriaId).then(response => {
-                setCatalogo(response)
-                })
+            callProductsByCategory(categoriaId).then(response => {
+                setProductos(response)
+            })
         }
     }, [categoriaId])
 
     return (
-    <div className="container">
-        <h1>{props.title}</h1>
-        <ItemList dataBase={catalogo}/>
-    </div>
+        <div className="container">
+            <h1>{props.title}</h1>
+            {productos.length > 0 ? <ItemList dataBase={productos} />
+                : <h1>No component</h1>}
+
+        </div>
     )
 }
 

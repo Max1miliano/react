@@ -1,13 +1,13 @@
 .carritoDeCompras {
-    color: white;
-    background-color: black;
-    padding: 1rem;
+    color: black;
     border-radius: 15px;
     display: grid;
     grid-auto-flow: column;
     place-items: center;
     gap: 1rem;
     cursor: pointer;
+    background: white;
+    padding: 0 1rem;
 }
 
 .modal {

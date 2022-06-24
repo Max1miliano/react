@@ -1,13 +1,11 @@
 .navBar {
     display: grid;
     grid-auto-flow: column;
-    padding: 2rem;
-    background-color: blue;
+    background-color: #ffcaa6;
 }
 
 .linkDeNav {
     text-decoration: none;
-    background-color: red;
     padding: 1rem;
     border-radius: 15px;
     color: white;
@@ -17,4 +15,14 @@
     width: 70px;
     height: 70px;
     border-radius: 50%; 
+  }
+
+  
+.navItems {
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    place-content: center;
+    gap: 1rem;
   }

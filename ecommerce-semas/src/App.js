@@ -6,20 +6,23 @@ import NavBar from "./components/NavBar/navBar";
 // // para importar react router 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ItemDetailcontainer from "./components/itemDetailContainer/itemDetailContainer";
-import ThemeContext from "./context/cartContext";
+import { CardProvider } from './context/CardContext';
 
 
 function App() {
   return <>
-    <BrowserRouter>
-      <NavBar landing={"Marca"}/> 
-      <Routes>
+    <CardProvider>
+      <BrowserRouter>
+        <NavBar landing={"Marca"}/> 
+        <Routes>
         <Route path="/" element={<ItemListContainer title="Bienvenidos a mi ecommerce"/>}/>
         <Route path="/catalogo/:categoriaId" element={<ItemListContainer title="Bienvenidos a mi ecommerce"/>}/>
-        <Route path="/detail/:semId" element={<ItemDetailcontainer />}/>
-      </Routes>
-    </BrowserRouter>
+        <Route path="/detail/:productoId" element={<ItemDetailcontainer />}/>
+        <Route path='/cart' element={<h1>CARD</h1>}/>
+        </Routes>
+      </BrowserRouter>
+    </CardProvider>
   </>;
-}
+}  
 
 export default App;

@@ -1,25 +1,26 @@
 import { useState, useEffect } from "react";
-import { getCatalogoById } from "../../databaseLocal/asyncmock";
+import { callProductsById } from "../../databaseLocal/asyncmock";
 import ItemDetail from "../itemDetail/itemDetail";
 import { useParams } from 'react-router-dom';
 import '../itemDetailContainer/itemDetailContainer.css'
 
 const ItemDetailcontainer = () => {
 
-    const params = useParams();
+  const [producto, setProducto] = useState() 
+  
+    const { productoId } = useParams();
 
-    const [semilla, setSemilla] = useState() 
 
     useEffect(() => {
-        getCatalogoById(params.semId).then(response => {
-            setSemilla(response)
+      callProductsById(productoId).then(response => {
+            setProducto(response)
         })
     }, [])
 
     return <>
       <div className="itemDetailContainer">
         <h1>Detalle de producto</h1>
-        <ItemDetail {...semilla}/>
+        <ItemDetail {...producto}/>
       </div>
     </>
 

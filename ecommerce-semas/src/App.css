@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 li {
   list-style: none;
   cursor: pointer;
@@ -5,12 +11,6 @@ li {
 
 
 
-.navItems {
-  padding: 0;
-  display: grid;
-  grid-auto-flow: column;
-  place-items: center center;
-}
 
 /* .app {
   display: flex;
