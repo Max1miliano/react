@@ -1,32 +1,32 @@
 import { useState, createContext } from "react";
 
-const CardContext = createContext()
+const CartContext = createContext()
 
 export const CardProvider = ({children}) => {
 
-    const [cart, setCart] = useState([])
+    const [carrito, setCarrito] = useState([])
 
-    const addItem = (productToAdd) => {
-    if(!isInCart(productToAdd.id)){
-    setCart([...cart, productToAdd ])
+    const agregarItem = (productToAdd) => {
+    if(!estaEnElCarrito(productToAdd.id)){
+    setCarrito([...carrito, productToAdd ])
   }
 
 }
 
-    const remoeItem = (id) => {
+    const sacarItem = (id) => {
 
-    const cartOutProduct = cart.filter(prod => prod.id !== id)
+    const productoFueraDelCarrito = carrito.filter(prod => prod.id !== id)
 
-    setCart(cartOutProduct)
+    setCarrito(productoFueraDelCarrito)
 }
 
-    const isInCart = (id) => {
-    return cart.some(prod => prod.id === id)
+    const estaEnElCarrito = (id) => {
+    return carrito.some(prod => prod.id === id)
 }
 
-    const getCartCantidad = () => {    
+    const getCantidadCarrito = () => {    
     let totalCantidad = 0
-    cart.forEach(prod => {
+    carrito.forEach(prod => {
         totalCantidad += prod.cantidad
     })
 
@@ -34,10 +34,10 @@ export const CardProvider = ({children}) => {
 }
 
     return (
-        <CardContext.Provider  value={{ cart, addItem, remoeItem , isInCart, getCartCantidad }}>
+        <CartContext.Provider  value={{ carrito, agregarItem, sacarItem , estaEnElCarrito, getCantidadCarrito }}>
             {children}
-        </CardContext.Provider>
+        </CartContext.Provider>
     )
 }
 
-export default CardContext
+export default CartContext

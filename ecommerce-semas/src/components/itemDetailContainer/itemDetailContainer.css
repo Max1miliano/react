@@ -1,5 +1,5 @@
 .itemDetailContainer {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    place-content: center;
     text-align: center;
 }
