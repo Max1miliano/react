@@ -10,13 +10,13 @@ const ItemDetail = ({id, imagen, nombre, precio, cantidad, descripcion  }) => {
 
    const {agregarItem} = useContext(CartContext)
 
-   const handleOnAdd = (quality) => {
+   const handleOnAdd = (cantidad) => {
 
-      console.log(`Se Agrego ${quality} ${nombre}`)
+      console.log(`Se Agrego ${cantidad} ${nombre}`)
 
       agregarItem({id, nombre, precio, cantidad})
 
-      setcantidadAgregada(quality)
+      setcantidadAgregada(cantidad)
 
   }
 
