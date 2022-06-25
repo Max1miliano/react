@@ -6,21 +6,21 @@ import '../itemDetailContainer/itemDetailContainer.css'
 
 const ItemDetailcontainer = () => {
 
-  const [producto, setProducto] = useState() 
+  const [productos, setproductoElegido] = useState() 
   
     const { productoId } = useParams();
 
 
     useEffect(() => {
       callProductsById(productoId).then(response => {
-            setProducto(response)
+        setproductoElegido(response)
         })
     }, [])
 
     return <>
       <div className="itemDetailContainer">
         <h1>Detalle de producto</h1>
-        <ItemDetail {...producto}/>
+        <ItemDetail {...productos}/>
       </div>
     </>
 
