@@ -6,6 +6,8 @@ export const CardProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([])
 
+    const [totalCantidad, setTotalCantidad] = useState(0)
+
     const agregarItem = (productToAdd) => {
     if(!estaEnElCarrito(productToAdd.id)){
     setCarrito([...carrito, productToAdd ])

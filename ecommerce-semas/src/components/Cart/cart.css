@@ -1,0 +1,14 @@
+img {
+    width: 140px;
+    border-radius: 4px;
+}
+
+.buyedItemList {
+    display: grid;
+    grid-auto-flow: column;
+    margin: 1rem;
+    padding: 1rem;
+    place-items: center;
+    background: #ffcaa6;
+    border-radius: 5px;
+}

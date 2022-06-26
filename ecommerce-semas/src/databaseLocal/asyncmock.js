@@ -3,9 +3,9 @@ const productos = [
         id: '568',
         nombre: 'Audifonos Samsung',
         categoria: 'Accesorios',
-        precio: '$120.000',
+        precio: 12000,
         imagen: 'https://cdn.pixabay.com/photo/2018/09/17/14/27/headphones-3683983_960_720.jpg',
-        cantidad: 'Cantidad 8 unidades',
+        cantidad: [],
         descripcion: 'Audifonos inalambricos para pc o celular'
 
     },
@@ -13,18 +13,18 @@ const productos = [
         id: '524',
         nombre: 'Portatil Rojos',
         categoria: 'Computadores',
-        precio: '$2.800',
+        precio: 2800,
         imagen: 'https://cdn.pixabay.com/photo/2014/09/24/14/29/macbook-459196_960_720.jpg',
-        cantidad: 'Cantidad 15 unidades',
+        cantidad: [],
         descripcion: 'Computador Gamer portatil y tactil, con pantalla 360 grados'  
     },
     {
         id: '180',
         nombre: 'Celular Kalley',
         categoria: 'Celulares',
-        precio: '$1.115',
+        precio: 1115,
         imagen: 'https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324_960_720.jpg',
-        cantidad: 'Cantidad 5 unidades',
+        cantidad: [],
         descripcion: 'Celular inteligente 12 de ram, 128 de rom y octalcore de 3.2 GHZ'   
     }
 ]
