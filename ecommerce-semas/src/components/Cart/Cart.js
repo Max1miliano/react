@@ -4,31 +4,24 @@ import '../Cart/cart.css'
 import { callProducts } from '../../databaseLocal/asyncmock'
 import { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-
+import { useCart } from '../../context/CardContext.jsx';
+import ItemCart from '../ItemCart/ItemCart'
 
 const Cart = () => {
 
-const { carrito, sacarItem } = useContext(CartContext)
+const { carrito, totalCantidad, totalToPay } = useContext(CartContext)
 
-const bolsa = [...carrito]
 
-console.log(bolsa)
-
-const eliminarProducto = (id) => {
-    sacarItem(id)
-}
+console.log(carrito)
+console.log(totalCantidad);
+console.log(totalToPay)
 
    return <>
     <div>
-        { bolsa === 0 ? <h1>No hay items agregados</h1> : <ul className='buyedItemList'>
-            <li><img src={ bolsa[0].imagen }  alt=''/></li>
-            <li>{ bolsa[0].nombre}</li>
-            <li>{ bolsa[0].cantidad}</li>
-            <li>{ (bolsa[0].precio * bolsa[0].cantidad )}</li>
-            <button onClick={ eliminarProducto }>Eliminar Item</button>
-        </ul>}
+        { totalCantidad === 0 ? <div><h1>No hay items en tu lista, puedes revisar nuestros productos desde el link debajo</h1>
+        <Link to='/'>Productos</Link></div> : carrito.map(bolsaDeItems => <ItemCart key={bolsaDeItems.id} {...bolsaDeItems}/> ) }
 
-        <p>Total: { (bolsa[0].precio * bolsa[0].cantidad ) }</p>
+        <p>Total: { (totalToPay * totalCantidad ) }</p>
         
         <button><Link to='/'>Crear Orden</Link></button>
     </div>

@@ -3,7 +3,6 @@ import CartContext from '../../context/CardContext'
 import Counter from '../Counter/Counter.js' 
 import { Link } from 'react-router-dom'
 import '../itemDetail/itemDetail.css'
-import { Context } from '../../App'
 
 const ItemDetail = ({id, imagen, nombre, precio, cantidad, descripcion  }) => {
 
@@ -17,12 +16,9 @@ const ItemDetail = ({id, imagen, nombre, precio, cantidad, descripcion  }) => {
 
       agregarItem({id, nombre, precio, cantidad, imagen})
 
-      // setcarritoDeCompras([...carritoDeCompras], {id, nombre, cantidad, precio})
       setcantidadAgregada(cantidad)
 
   }
-
-  console.log(cantidad)
 
    return <>
       <div className='itemDetail'>
