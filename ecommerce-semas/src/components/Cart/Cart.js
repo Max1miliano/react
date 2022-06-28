@@ -1,10 +1,7 @@
-// import { useState, useContext } from 'react'
 import CartContext from '../../context/CardContext'
 import '../Cart/cart.css'    
-import { callProducts } from '../../databaseLocal/asyncmock'
-import { useEffect, useState, useContext } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { useCart } from '../../context/CardContext.jsx';
 import ItemCart from '../ItemCart/ItemCart'
 
 const Cart = () => {

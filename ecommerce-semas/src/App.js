@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ItemDetailcontainer from "./components/itemDetailContainer/itemDetailContainer";
 import { CardProvider } from './context/CardContext';
 import Cart from '../src/components/Cart/Cart.js'
-import { createContext, useState } from 'react'
 
 
 function App() {

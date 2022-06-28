@@ -1,9 +1,10 @@
 import './itemListContainer.css'
 import { useState, useEffect } from 'react'
-import { callProducts } from '../../databaseLocal/asyncmock'
-import { callProductsByCategory } from '../../databaseLocal/asyncmock'
 import ItemList from '../../components/itemList/itemList'
 import { useParams } from 'react-router-dom'
+
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { baseDeDatos } from '../../services/firebase'
 
 const ItemListContainer = (props) => {
 
@@ -11,16 +12,19 @@ const ItemListContainer = (props) => {
 
     const [productos, setProductos] = useState([])
 
+
     useEffect(() => {
-        if (!categoriaId) {
-            callProducts().then(response => {
-                setProductos(response)
+        const collectionRef = categoriaId ? (
+            query(collection(baseDeDatos, 'productos'), where('categoria', '==', categoriaId))
+        ) : (collection(baseDeDatos, 'productos'))
+
+
+        getDocs(collectionRef).then(respuesta => {
+            const productosDeFirestore = respuesta.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
             })
-        } else {
-            callProductsByCategory(categoriaId).then(response => {
-                setProductos(response)
-            })
-        }
+            setProductos(productosDeFirestore)
+        })
     }, [categoriaId])
 
     return (

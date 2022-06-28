@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { callProductsById } from "../../databaseLocal/asyncmock";
 import ItemDetail from "../itemDetail/itemDetail";
 import { useParams } from 'react-router-dom';
 import '../itemDetailContainer/itemDetailContainer.css'
+
+import { baseDeDatos } from "../../services/firebase";
+import { getDoc, doc } from "firebase/firestore";
 
 const ItemDetailcontainer = () => {
 
@@ -12,9 +14,16 @@ const ItemDetailcontainer = () => {
 
 
     useEffect(() => {
-      callProductsById(productoId).then(response => {
-        setproductoElegido(response)
-        })
+
+      const documentoReferencia = doc(baseDeDatos, 'productos', productoId) 
+
+      getDoc(documentoReferencia).then(doc => {
+        console.log(doc)
+
+        const productosFormateados = { id: doc.id, ...doc.data()}
+        setproductoElegido(productosFormateados)
+      })
+      // eslint-disable-next-line
     }, [])
 
     return <>

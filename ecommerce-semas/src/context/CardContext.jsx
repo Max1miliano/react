@@ -13,8 +13,9 @@ export const CardProvider = ({ children }) => {
 
     useEffect(() => {
         getCantidadCarrito()
-        
+        // eslint-disable-next-line
         updateTotalToPay()
+        // eslint-disable-next-line
     }, [carrito]);
 
     const agregarItem = (productToAdd) => {
