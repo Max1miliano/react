@@ -7,7 +7,7 @@ export const CardProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
 
-    const [totalCantidad, setTotalCantidad] = useState(0)
+    // const [totalCantidad, setTotalCantidad] = useState(0)
 
     const [totalToPay, setTotalToPay] = useState(0)
 
@@ -20,9 +20,8 @@ export const CardProvider = ({ children }) => {
 
     const agregarItem = (productToAdd) => {
         if (!estaEnElCarrito(productToAdd.id)) {
-            setCarrito([...carrito, productToAdd])
+            setCarrito([...carrito, productToAdd ])
         }
-
     }
 
     const sacarItem = (id) => {
@@ -41,7 +40,7 @@ export const CardProvider = ({ children }) => {
             totalCantidad += prod.cantidad
         })
 
-        setTotalCantidad(totalCantidad)
+        return totalCantidad
     }
 
     const updateTotalToPay = () => {
@@ -54,7 +53,7 @@ export const CardProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ carrito, totalCantidad, totalToPay, agregarItem, sacarItem, estaEnElCarrito, getCantidadCarrito }}>
+        <CartContext.Provider value={{ carrito, agregarItem, totalToPay, sacarItem, estaEnElCarrito, getCantidadCarrito }}>
             {children}
         </CartContext.Provider>
     )

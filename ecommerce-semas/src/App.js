@@ -7,10 +7,12 @@ import ItemDetailcontainer from "./components/itemDetailContainer/itemDetailCont
 import { CardProvider } from './context/CardContext';
 import Cart from '../src/components/Cart/Cart.js'
 
+import { NotificationProvider } from './notification/Notification.jsx'
 
 function App() {
 
   return <>
+  <NotificationProvider>
     <CardProvider>
       <BrowserRouter>
         <NavBar landing={"Marca"}/> 
@@ -22,6 +24,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CardProvider>
+  </NotificationProvider>
   </>;
 }  
 
