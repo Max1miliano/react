@@ -29,6 +29,11 @@ img {
 } */
 
 /* From uiverse.io by @alexruix */
+a{
+    text-decoration: none;
+}
+
+
 .card {
     display: grid;
     grid-template-columns: 1fr;

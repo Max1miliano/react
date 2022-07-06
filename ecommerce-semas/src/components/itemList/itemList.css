@@ -1,6 +1,6 @@
 .itemList {
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     place-content: center;
 }

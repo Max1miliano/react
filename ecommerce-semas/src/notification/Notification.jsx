@@ -1,4 +1,3 @@
-import '../notification/Notificacion.css'
 import { useState, createContext, useContext } from "react"
 
 const Notification = ({ message, severity, otherClass }) => {
@@ -50,7 +49,6 @@ export const NotificationProvider = ({ children }) => {
 
     return(
         <NotificationContext.Provider value={ setNotification }>
-            {/* { msgConfig.message !== '' && <Notification message={msgConfig.message} severity={msgConfig.severity}/> } */}
             <Notification message={msgConfig.message} severity={msgConfig.severity} otherClass={otherClass}/>
             { children }
         </NotificationContext.Provider>

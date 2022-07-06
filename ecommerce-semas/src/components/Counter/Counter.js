@@ -1,6 +1,8 @@
 import { useState } from "react";
 import '../Counter/counter.css'
 
+import { Button } from "@chakra-ui/react";
+
 const Counter = ({ onAdd, initial, stock }) => {
 
   const [count, setCount] = useState(initial);
@@ -14,10 +16,10 @@ const Counter = ({ onAdd, initial, stock }) => {
 
   return (
     <div className="counter">
-      <button onClick={increment}>+</button>
-      <button onClick={() => onAdd(count)}>{count}</button>
-      <button onClick={decrement}>-</button>
-      <button onClick={() => onAdd(count)}>Agregar al Carrito</button>
+      <Button onClick={increment}>+</Button>
+      <Button onClick={() => onAdd(count)}>{count}</Button>
+      <Button onClick={decrement}>-</Button>
+      <Button onClick={() => onAdd(count)}>{ stock === 0 ? 'Sin Stock' : 'Agregar producto'}</Button>
     </div>
   );
 };

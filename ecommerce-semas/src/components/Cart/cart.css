@@ -12,3 +12,51 @@ img {
     background: #ffcaa6;
     border-radius: 5px;
 }
+
+.totalItemContainer {
+    text-align: center;
+}
+
+.emptyCart {
+    display: grid;
+    gap: 1rem;
+    place-items: center;
+    padding: 1rem;
+}
+
+.emptyCart h1 {
+    width: 40vw;
+}
+
+.emptyCart a{
+    background: #ffcaa6;
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: black;
+    width: fit-content;
+
+}
+
+.addMoreProducts {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+    background: #ffcaa6;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.addMoreProducts button{
+    padding: 0.5rem;
+    background: white;
+    border: 0;
+    border-radius: 10px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.addMoreProducts p {
+    font-weight: bold;
+}

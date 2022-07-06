@@ -1,7 +1,8 @@
 .counter  button {
     padding: 1rem;
     border-radius: 5px;
-    background: #ff000085;
+    background: white;
     cursor: pointer;
     margin-left: 5px;
+    border: 0;
 }

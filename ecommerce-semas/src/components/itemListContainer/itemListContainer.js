@@ -6,14 +6,19 @@ import { useParams } from 'react-router-dom'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { baseDeDatos } from '../../services/firebase'
 
+import Loader from '../Loader/Loader'
+
 const ItemListContainer = (props) => {
 
     const { categoriaId } = useParams()
 
     const [productos, setProductos] = useState([])
 
+    // const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // setLoading(true)
+
         const collectionRef = categoriaId ? (
             query(collection(baseDeDatos, 'productos'), where('categoria', '==', categoriaId))
         ) : (collection(baseDeDatos, 'productos'))
@@ -23,16 +28,20 @@ const ItemListContainer = (props) => {
             const productosDeFirestore = respuesta.docs.map(doc => {
                 return { id: doc.id, ...doc.data() }
             })
+            
             setProductos(productosDeFirestore)
         })
     }, [categoriaId])
+
+    // if(loading){
+    //     return <h3>CARGANDO...</h3>
+    // }
 
     return (
         <div className="container">
             <h1>{props.title}</h1>
             {productos.length > 0 ? <ItemList dataBase={productos} />
-                : <h1>No component</h1>}
-
+                : <Loader></Loader>}
         </div>
     )
 }

@@ -1,21 +1,39 @@
 import CartWidget from "../cartWidget/cartWidget";
-import {Link, NavLink} from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import '../NavBar/navBar.css'
 
-const NavBar = ({landing}) => {
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    Box,
+    Flex
+} from '@chakra-ui/react'
+
+import { ChevronDownIcon } from '@chakra-ui/icons'
+
+const NavBar = ({ landing }) => {
     return <>
-        <header className="navBar">
-            <nav>
-                <ul className="navItems">
-                    <Link className='linkDeNav' to='/'><h1>{landing}</h1></Link>
-                    <NavLink className='linkDeNav' to={ '/catalogo/Accesorios' }>Accesorios</NavLink> 
-                    <NavLink className='linkDeNav' to={ '/catalogo/Computadores' }>Computadoras</NavLink>
-                    <NavLink className='linkDeNav' to={ '/catalogo/Celulares' }>Celulares</NavLink>
+        <Box bg='tomato' w='100%   ' p='3'>
+           <Flex flexDirection='row'>
+                <Menu>
+                    <Link to='/'><h1>{landing}</h1></Link>
+                    <MenuButton as=''>
+                        Categorías <ChevronDownIcon />
+                    </MenuButton>
+                    <MenuList>
+                    <MenuItem><NavLink to={ '/catalogo/Accesorios' }>Accesorios</NavLink></MenuItem>
+                    <MenuItem><NavLink to={ '/catalogo/Computadores' }>Computadoras</NavLink></MenuItem>
+                    <MenuItem><NavLink to={ '/catalogo/Celulares' }>Celulares</NavLink></MenuItem>
+                    </MenuList>
                     <CartWidget />
-                </ul>
-            </nav>
-        </header>
+                </Menu>
+           </Flex>
+        </Box>    
     </>
 }
 
-export default NavBar;
+export default NavBar;   
+
+

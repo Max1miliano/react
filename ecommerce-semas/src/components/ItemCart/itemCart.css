@@ -1,0 +1,7 @@
+.buyedItemList button {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+}

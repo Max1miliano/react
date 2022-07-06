@@ -33,3 +33,12 @@
 .smell {
     grid-area: 3/1/4/2;
 }
+
+.finishBuy {
+    background: white;
+    border-radius: 10px;
+    width: fit-content;
+    place-self: center;
+    padding: 0.5rem;
+    color: black;
+}

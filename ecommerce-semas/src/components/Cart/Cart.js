@@ -17,13 +17,10 @@ console.log(totalToPay)
 console.log(idsAcumulados)
 
    return <>
-    <div>
-        { carrito < 1 ? <div><h1>No hay items en tu lista, puedes revisar nuestros productos desde el link debajo</h1>
-        <Link to='/'>Productos</Link></div> : carrito.map(bolsaDeItems => <ItemCart key={bolsaDeItems.id} {...bolsaDeItems}/> ) }
-
-        <p>Total: {totalToPay}</p>
-        
-        <button><Link to='/'>Crear Orden</Link></button>
+    <div className='totalItemContainer'>
+        { carrito < 1 ? <div className='emptyCart'><h1>No hay items en tu lista, puedes revisar nuestros productos desde el link debajo</h1>
+        <Link to='/'>Productos</Link></div> : carrito.map(bolsaDeItems => <ItemCart key={bolsaDeItems.id} {...bolsaDeItems}/>)}
+        { carrito < 1 ? '' : <div className='addMoreProducts'><p>El total de tu compra es de ${totalToPay} pesos</p><button><Link to='/'>Agregar más productos</Link></button></div>}
     </div>
    </>
 }
