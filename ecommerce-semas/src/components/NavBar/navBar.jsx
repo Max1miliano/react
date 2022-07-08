@@ -7,33 +7,35 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Box,
-    Flex
+    Flex,
+    Button
 } from '@chakra-ui/react'
 
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
 const NavBar = ({ landing }) => {
     return <>
-        <Box bg='tomato' w='100%   ' p='3'>
-           <Flex flexDirection='row'>
+        <Flex flexDirection='row' bg='tomato' w='100%' p='3' justifyContent='space-around'>
+            <Link to='/'><h1>{landing}</h1></Link>
+            <Flex flexDirection='row' gap='2rem' justifyContent='center'>
                 <Menu>
-                    <Link to='/'><h1>{landing}</h1></Link>
-                    <MenuButton as=''>
+                    <Button>
+                       <MenuButton as=''>
                         Categorías <ChevronDownIcon />
-                    </MenuButton>
+                       </MenuButton>
+                    </Button>
                     <MenuList>
-                    <MenuItem><NavLink to={ '/catalogo/Accesorios' }>Accesorios</NavLink></MenuItem>
-                    <MenuItem><NavLink to={ '/catalogo/Computadores' }>Computadoras</NavLink></MenuItem>
-                    <MenuItem><NavLink to={ '/catalogo/Celulares' }>Celulares</NavLink></MenuItem>
+                        <MenuItem><NavLink to={'/catalogo/Accesorios'}>Accesorios</NavLink></MenuItem>
+                        <MenuItem><NavLink to={'/catalogo/Computadores'}>Computadoras</NavLink></MenuItem>
+                        <MenuItem><NavLink to={'/catalogo/Celulares'}>Celulares</NavLink></MenuItem>
                     </MenuList>
                     <CartWidget />
                 </Menu>
-           </Flex>
-        </Box>    
+            </Flex>
+        </Flex>
     </>
 }
 
-export default NavBar;   
+export default NavBar;
 
 

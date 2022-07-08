@@ -9,6 +9,7 @@ import Cart from '../src/components/Cart/Cart.js'
 
 import { NotificationProvider } from './notification/Notification.jsx'
 
+
 // import * as React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'

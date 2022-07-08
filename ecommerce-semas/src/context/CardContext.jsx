@@ -12,6 +12,7 @@ export const CardProvider = ({ children }) => {
     const [totalToPay, setTotalToPay] = useState(0)
 
     useEffect(() => {
+        
         getCantidadCarrito()
         // eslint-disable-next-line
         updateTotalToPay()
@@ -52,8 +53,12 @@ export const CardProvider = ({ children }) => {
         setTotalToPay(total)
     }
 
+    const limpiarCarrito = () => {
+        setCarrito([])
+    }
+
     return (
-        <CartContext.Provider value={{ carrito, agregarItem, totalToPay, sacarItem, estaEnElCarrito, getCantidadCarrito }}>
+        <CartContext.Provider value={{ carrito, agregarItem, totalToPay, sacarItem, estaEnElCarrito, getCantidadCarrito, limpiarCarrito }}>
             {children}
         </CartContext.Provider>
     )
