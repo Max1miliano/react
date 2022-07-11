@@ -13,7 +13,17 @@ import {
 
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
+
+
+import CategoryContainer from "../CategoryContainer/CategoryContainer";
+
+
+import { useContext } from "react";
+import CartContext from "../../context/CardContext";
+
 const NavBar = ({ landing }) => {
+
+
     return <>
         <Flex flexDirection='row' bg='tomato' w='100%' p='3' justifyContent='space-around'>
             <Link to='/'><h1>{landing}</h1></Link>
@@ -25,9 +35,11 @@ const NavBar = ({ landing }) => {
                        </MenuButton>
                     </Button>
                     <MenuList>
-                        <MenuItem><NavLink to={'/catalogo/Accesorios'}>Accesorios</NavLink></MenuItem>
+                        {/* <MenuItem><NavLink to={'/catalogo/Accesorios'}>Accesorios</NavLink></MenuItem>
                         <MenuItem><NavLink to={'/catalogo/Computadores'}>Computadoras</NavLink></MenuItem>
-                        <MenuItem><NavLink to={'/catalogo/Celulares'}>Celulares</NavLink></MenuItem>
+                        <MenuItem><NavLink to={'/catalogo/Celulares'}>Celulares</NavLink></MenuItem> */}
+                        {/* { todasLasCategorias.map(categoriaPorId => <CategoryLink key={categoriaPorId.id} {...categoriaPorId}></CategoryLink> )} */}
+                        <CategoryContainer/>
                     </MenuList>
                     <CartWidget />
                 </Menu>

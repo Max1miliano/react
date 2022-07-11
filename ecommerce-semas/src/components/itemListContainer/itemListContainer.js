@@ -17,7 +17,6 @@ const ItemListContainer = (props) => {
     // const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // setLoading(true)
 
         const collectionRef = categoriaId ? (
             query(collection(baseDeDatos, 'productos'), where('categoria', '==', categoriaId))
@@ -29,13 +28,11 @@ const ItemListContainer = (props) => {
                 return { id: doc.id, ...doc.data() }
             })
             
+            
             setProductos(productosDeFirestore)
         })
     }, [categoriaId])
 
-    // if(loading){
-    //     return <h3>CARGANDO...</h3>
-    // }
 
     return (
         <div className="container">

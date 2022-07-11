@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useState, createContext, useContext } from "react";
 
+import { collection, getDocs, query } from "firebase/firestore";
+import { baseDeDatos } from "../services/firebase";
+
 const CartContext = createContext()
 
 export const CardProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
 
-    // const [totalCantidad, setTotalCantidad] = useState(0)
-
     const [totalToPay, setTotalToPay] = useState(0)
+
+    const [ todasLasCategorias, setTodasLasCategorias ] = useState()
 
     useEffect(() => {
         
@@ -18,6 +21,20 @@ export const CardProvider = ({ children }) => {
         updateTotalToPay()
         // eslint-disable-next-line
     }, [carrito]);
+
+    useEffect(() => {
+
+          const totalDeCategorias = query(collection(baseDeDatos, 'categorias'))
+
+          getDocs(totalDeCategorias).then(respuesta => {
+            const categoriasDeFirestore = respuesta.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            })
+            
+            setTodasLasCategorias(categoriasDeFirestore)
+        })
+    }, [])
+
 
     const agregarItem = (productToAdd) => {
         if (!estaEnElCarrito(productToAdd.id)) {
@@ -58,7 +75,7 @@ export const CardProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ carrito, agregarItem, totalToPay, sacarItem, estaEnElCarrito, getCantidadCarrito, limpiarCarrito }}>
+        <CartContext.Provider value={{ carrito, agregarItem, totalToPay, sacarItem, estaEnElCarrito, getCantidadCarrito, limpiarCarrito, todasLasCategorias }}>
             {children}
         </CartContext.Provider>
     )
