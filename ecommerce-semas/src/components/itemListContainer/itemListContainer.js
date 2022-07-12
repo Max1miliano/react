@@ -14,31 +14,33 @@ const ItemListContainer = (props) => {
 
     const [productos, setProductos] = useState([])
 
-    // const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
 
         const collectionRef = categoriaId ? (
             query(collection(baseDeDatos, 'productos'), where('categoria', '==', categoriaId))
         ) : (collection(baseDeDatos, 'productos'))
-
-
         getDocs(collectionRef).then(respuesta => {
             const productosDeFirestore = respuesta.docs.map(doc => {
                 return { id: doc.id, ...doc.data() }
             })
-            
-            
-            setProductos(productosDeFirestore)
+        setProductos(productosDeFirestore)
+        }).finally(() => {
+            setLoading(false)
         })
     }, [categoriaId])
 
+    if(loading){
+        return <Loader></Loader>
+    }
 
     return (
         <div className="container">
             <h1>{props.title}</h1>
             {productos.length > 0 ? <ItemList dataBase={productos} />
-                : <Loader></Loader>}
+                : <h1>Lo sentimos, aún no hay productos para esta categoría</h1>}
         </div>
     )
 }

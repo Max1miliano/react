@@ -8,10 +8,6 @@ const Item = ({ nombre, imagen, precio, descripcion, id, categoria }) => {
 
     const { categoriaId } = useParams()
 
-    console.log(categoriaId);
-
-    console.log(categoria);
-
     return <>
      <div className="card">
      <img className="card-img" src= { imagen } alt=''></img>

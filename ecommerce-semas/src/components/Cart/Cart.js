@@ -15,9 +15,7 @@ import {
     Modal,
     ModalOverlay,
     ModalContent,
-    ModalHeader,
     ModalFooter,
-    ModalBody,
     ModalCloseButton,
     useDisclosure
 } from '@chakra-ui/react'
@@ -26,7 +24,7 @@ const Cart = () => {
 
     const { carrito, totalCantidad, totalToPay, limpiarCarrito } = useContext(CartContext)
 
-    const idsAcumulados = carrito.map(soloId => soloId.id);
+    // const idsAcumulados = carrito.map(soloId => soloId.id);
 
     const dateOrderCreated = new Date
     console.log(dateOrderCreated.toString())
