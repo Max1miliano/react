@@ -3,12 +3,7 @@ import '../Cart/cart.css'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCart from '../ItemCart/ItemCart'
-import { useNotification } from '../../notification/Notification'
-
-import { Button, Flex, Text, Input } from '@chakra-ui/react'
-
-import { addDoc, query, collection } from 'firebase/firestore'
-import { baseDeDatos } from '../../services/firebase'
+import { Button, Text } from '@chakra-ui/react'
 import FormComponent from '../formComponent/FormComponent'
 
 import {
@@ -22,11 +17,9 @@ import {
 
 const Cart = () => {
 
-    const { carrito, totalCantidad, totalToPay, limpiarCarrito } = useContext(CartContext)
+    const { carrito, totalToPay, limpiarCarrito } = useContext(CartContext)
 
-    // const idsAcumulados = carrito.map(soloId => soloId.id);
-
-    const dateOrderCreated = new Date
+    const dateOrderCreated = new Date()
     console.log(dateOrderCreated.toString())
 
 
@@ -37,14 +30,14 @@ const Cart = () => {
         <div className='totalItemContainer'>
             {carrito < 1 ?
                 <div className='emptyCart'>
-                    <h1>No hay items en tu lista, puedes revisar nuestros productos desde el link debajo</h1>
+                    <Text>No hay items en tu lista, puedes revisar nuestros productos desde el link debajo</Text>
                     <Link to='/'>Productos</Link>
                 </div>
                 : carrito.map(bolsaDeItems => <ItemCart key={bolsaDeItems.id} {...bolsaDeItems} />)
             }
             {carrito < 1 ? '' :
                 <div className='addMoreProducts'>
-                    <p>El total de tu compra es de ${totalToPay} pesos</p>
+                    <Text>El total de tu compra es de ${totalToPay} pesos</Text>
                     <Button onClick={() => limpiarCarrito()}>Limpiar carrito</Button>
                     <Button onClick={onOpen}>Continuar compra</Button>
                     <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose}>

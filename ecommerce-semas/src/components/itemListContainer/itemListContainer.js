@@ -1,10 +1,11 @@
-import './itemListContainer.css'
 import { useState, useEffect } from 'react'
 import ItemList from '../../components/itemList/itemList'
 import { useParams } from 'react-router-dom'
 
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { baseDeDatos } from '../../services/firebase'
+
+import { Heading, Flex } from '@chakra-ui/react'
 
 import Loader from '../Loader/Loader'
 
@@ -37,11 +38,11 @@ const ItemListContainer = (props) => {
     }
 
     return (
-        <div className="container">
-            <h1>{props.title}</h1>
+        <Flex flexDirection='column' placeItems='center'>
+            <Heading>{props.title}</Heading>
             {productos.length > 0 ? <ItemList dataBase={productos} />
-                : <h1>Lo sentimos, aún no hay productos para esta categoría</h1>}
-        </div>
+                : <Heading>Lo sentimos, aún no hay productos para esta categoría</Heading>}
+        </Flex>
     )
 }
 

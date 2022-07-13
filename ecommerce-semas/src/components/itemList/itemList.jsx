@@ -1,5 +1,6 @@
 import Item from '../items/items'
-import '../itemList/itemList.css'
+
+import { Flex } from '@chakra-ui/react'
 
 
 const ItemList = ({ dataBase }) => {
@@ -7,9 +8,9 @@ const ItemList = ({ dataBase }) => {
 
 
     return (
-        <ul className='itemList'>
+        <Flex flexWrap='wrap' gap='1rem' placeContent='center'>
             {dataBase.map(catalogos => <Item key={catalogos.id} {...catalogos}/>)}
-        </ul>
+        </Flex>
     )
 }
 
