@@ -16,4 +16,5 @@ The steps are the following:
 * I found it very useful to use the Chakra UI library as it allows me to reduce the CSS files and apply directly imported styles.
 * I also used a NoSQL database like Firebase to store my created orders, products and categories.
 
-[![Alt text for your video]](/src/videos/platformTest.gif)
+### Preview aboute the process
+https://github.com/Max1miliano/react/blob/main/ecommerce-semas/src/videos/platformTest.gif
